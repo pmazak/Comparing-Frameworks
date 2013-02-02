@@ -1,0 +1,9 @@
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-07-07 21:24:01
+project --topLevelPackage roo.app
+persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT 
+entity --class ~.domain.Task
+field string --fieldName description --notNull true
+field date --fieldName dueDate --type java.util.Date --future true
+controller scaffold ~.web.TaskController
+quit
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-10-03 15:35:03

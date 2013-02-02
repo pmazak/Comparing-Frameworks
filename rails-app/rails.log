@@ -1,0 +1,160 @@
+c:\code\Comparing-Frameworks>rails new rails-app
+      create
+      create  README.rdoc
+      create  Rakefile
+      create  config.ru
+      create  .gitignore
+      create  Gemfile
+      create  app
+      create  app/assets/images/rails.png
+      create  app/assets/javascripts/application.js
+      create  app/assets/stylesheets/application.css
+      create  app/controllers/application_controller.rb
+      create  app/helpers/application_helper.rb
+      create  app/views/layouts/application.html.erb
+      create  app/mailers/.gitkeep
+      create  app/models/.gitkeep
+      create  config
+      create  config/routes.rb
+      create  config/application.rb
+      create  config/environment.rb
+      create  config/environments
+      create  config/environments/development.rb
+      create  config/environments/production.rb
+      create  config/environments/test.rb
+      create  config/initializers
+      create  config/initializers/backtrace_silencers.rb
+      create  config/initializers/inflections.rb
+      create  config/initializers/mime_types.rb
+      create  config/initializers/secret_token.rb
+      create  config/initializers/session_store.rb
+      create  config/initializers/wrap_parameters.rb
+      create  config/locales
+      create  config/locales/en.yml
+      create  config/boot.rb
+      create  config/database.yml
+      create  db
+      create  db/seeds.rb
+      create  doc
+      create  doc/README_FOR_APP
+      create  lib
+      create  lib/tasks
+      create  lib/tasks/.gitkeep
+      create  lib/assets
+      create  lib/assets/.gitkeep
+      create  log
+      create  log/.gitkeep
+      create  public
+      create  public/404.html
+      create  public/422.html
+      create  public/500.html
+      create  public/favicon.ico
+      create  public/index.html
+      create  public/robots.txt
+      create  script
+      create  script/rails
+      create  test/fixtures
+      create  test/fixtures/.gitkeep
+      create  test/functional
+      create  test/functional/.gitkeep
+      create  test/integration
+      create  test/integration/.gitkeep
+      create  test/unit
+      create  test/unit/.gitkeep
+      create  test/performance/browsing_test.rb
+      create  test/test_helper.rb
+      create  tmp/cache
+      create  tmp/cache/assets
+      create  vendor/assets/javascripts
+      create  vendor/assets/javascripts/.gitkeep
+      create  vendor/assets/stylesheets
+      create  vendor/assets/stylesheets/.gitkeep
+      create  vendor/plugins
+      create  vendor/plugins/.gitkeep
+         run  bundle install
+Fetching gem metadata from https://rubygems.org/...........
+Fetching gem metadata from https://rubygems.org/..
+Installing rake (10.0.3)
+Using i18n (0.6.1)
+Installing multi_json (1.5.0)
+Using activesupport (3.2.11)
+Installing builder (3.0.4)
+Using activemodel (3.2.11)
+Using erubis (2.7.0)
+Using journey (1.0.4)
+Installing rack (1.4.4)
+Using rack-cache (1.2)
+Using rack-test (0.6.2)
+Using hike (1.2.1)
+Using tilt (1.3.3)
+Using sprockets (2.2.2)
+Using actionpack (3.2.11)
+Using mime-types (1.19)
+Using polyglot (0.3.3)
+Installing treetop (1.4.12)
+Using mail (2.4.4)
+Using actionmailer (3.2.11)
+Using arel (3.0.2)
+Installing tzinfo (0.3.35)
+Using activerecord (3.2.11)
+Using activeresource (3.2.11)
+Using bundler (1.1.3)
+Installing coffee-script-source (1.4.0)
+Using execjs (1.4.0)
+Using coffee-script (2.2.0)
+Installing rack-ssl (1.3.3)
+Installing json (1.7.6) with native extensions
+Using rdoc (3.12)
+Installing thor (0.17.0)
+Using railties (3.2.11)
+Using coffee-rails (3.2.2)
+Installing jquery-rails (2.2.0)
+Using rails (3.2.11)
+Installing sass (3.2.5)
+Installing sass-rails (3.2.6)
+Installing sqlite3 (1.3.7)
+Using uglifier (1.3.0)
+Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem
+is installed.
+
+c:\code\Comparing-Frameworks>cd rails-app
+
+c:\code\Comparing-Frameworks\rails-app>rails generate scaffold Task description:
+string due:date
+      invoke  active_record
+      create    db/migrate/20130202180344_create_tasks.rb
+      create    app/models/task.rb
+      invoke    test_unit
+      create      test/unit/task_test.rb
+      create      test/fixtures/tasks.yml
+      invoke  resource_route
+       route    resources :tasks
+      invoke  scaffold_controller
+      create    app/controllers/tasks_controller.rb
+      invoke    erb
+      create      app/views/tasks
+      create      app/views/tasks/index.html.erb
+      create      app/views/tasks/edit.html.erb
+      create      app/views/tasks/show.html.erb
+      create      app/views/tasks/new.html.erb
+      create      app/views/tasks/_form.html.erb
+      invoke    test_unit
+      create      test/functional/tasks_controller_test.rb
+      invoke    helper
+      create      app/helpers/tasks_helper.rb
+      invoke      test_unit
+      create        test/unit/helpers/tasks_helper_test.rb
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/tasks.js.coffee
+      invoke    scss
+      create      app/assets/stylesheets/tasks.css.scss
+      invoke  scss
+      create    app/assets/stylesheets/scaffolds.css.scss
+      
+c:\code\Comparing-Frameworks\rails-app>rake db:migrate
+==  CreateTasks: migrating ====================================================
+-- create_table(:tasks)
+   -> 0.0070s
+==  CreateTasks: migrated (0.0110s) ===========================================      
+      

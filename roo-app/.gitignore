@@ -1,0 +1,9 @@
+.git
+*.aj
+template-db.properties
+template-db.script
+*.class
+.classpath
+.project
+.settings
+target
