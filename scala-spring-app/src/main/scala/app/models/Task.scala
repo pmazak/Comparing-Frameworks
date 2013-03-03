@@ -5,7 +5,7 @@ import java.util.Date
 import scala.reflect.BeanProperty
 
 
-case class Task
+case class Task()
 {
     @BeanProperty
 	var id: Long = 0

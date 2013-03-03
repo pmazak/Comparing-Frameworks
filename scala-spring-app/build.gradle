@@ -1,0 +1,32 @@
+apply plugin: 'eclipse'
+apply plugin: 'scala'
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.6 
+
+repositories {
+	mavenCentral()
+	maven { url 'http://repo.typesafe.com/typesafe/snapshots/' }
+}
+dependencies {
+	compile 'javax.servlet:servlet-api:2.5'
+  compile 'javax.servlet:jstl:1.2'
+	providedCompile 'javax.servlet:jsp-api:2.0'
+	compile 'org.scala-lang:scala-library:2.9.2'
+	//compile 'org.scalatra:scalatra_2.9.1:2.0.4'
+	//compile 'org.scalatra:scalatra:2.1.0'
+  compile('org.springframework:spring-webmvc:3.2.0.RELEASE'){
+      exclude module: 'spring-aop'
+  }
+  
+}
+war.doLast {
+  ant.unzip(src: war.archivePath, dest: "$buildDir/exploded")
+}
+
+task stage(dependsOn: 'war')
+
+task os {
+println System.getProperty('os.name')
+println System.getProperty('os.arch')
+}
