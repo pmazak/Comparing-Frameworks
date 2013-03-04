@@ -5,6 +5,11 @@
 Edited task.
 <table border=1 cellspacing=0 cellpadding=3>
     <tr>
+    {{#task}}
+        {{{task}}}
+    {{/task}}
+    {{^task}}
         {{{this}}}
+    {{/task}}
     </tr>
 </table>

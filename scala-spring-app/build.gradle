@@ -10,18 +10,15 @@ repositories {
 }
 dependencies {
 	providedCompile 'javax.servlet:servlet-api:2.5'
-  compile 'javax.servlet:jstl:1.2'
-	providedCompile 'javax.servlet:jsp-api:2.0'
-	compile 'org.scala-lang:scala-library:2.9.2'
-  //compile 'org.fusesource.scalate:scalate-core_2.10:1.6.1'
-  //compile 'org.fusesource.scalate:scalate-spring-mvc:1.5.3'
-  compile 'com.github.sps.mustache:mustache-spring-view:1.1-SNAPSHOT'          
-	//compile 'org.scalatra:scalatra_2.9.1:2.0.4'
-	//compile 'org.scalatra:scalatra:2.1.0'
   compile('org.springframework:spring-webmvc:3.2.0.RELEASE'){
-      exclude module: 'org.springframework:spring-aop:3.2.0.RELEASE'
+      exclude module: 'spring-aop'
   }
-  
+	compile 'org.scala-lang:scala-library:2.9.2'
+  compile 'com.github.sps.mustache:mustache-spring-view:1.0'          
+  //compile 'org.fusesource.scalate:scalate-spring-mvc:1.5.3'
+	//compile 'org.scalatra:scalatra_2.9.1:2.0.4'
+  //compile 'javax.servlet:jstl:1.2'
+	//providedCompile 'javax.servlet:jsp-api:2.0'
 }
 war.doLast {
   ant.unzip(src: war.archivePath, dest: "$buildDir/exploded")
@@ -31,9 +28,7 @@ eclipse {
        downloadSources=true
     }
 }
-task stage(dependsOn: 'war')
-
 task os {
-println System.getProperty('os.name')
-println System.getProperty('os.arch')
+	println System.getProperty('os.name')
+	println System.getProperty('os.arch')
 }
