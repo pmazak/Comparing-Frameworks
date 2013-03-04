@@ -1,0 +1,6 @@
+@(message: String, task: models.Task)
+ 
+@main("Welcome to Tasks") {
+    <h1>@message</h1>
+    <p>@task.description<em> - @task.due</em></p>
+}

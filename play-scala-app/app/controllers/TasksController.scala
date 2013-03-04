@@ -18,4 +18,17 @@ object TasksController extends Controller {
     Ok(views.html.tasks.index("Your new application is ready.", task))
   }
   
+  def list = Action {
+    var task:Task = new Task("Get Things Done!", new Date)
+    transaction {
+      AppDB.tasks.insert(task)
+      AppDB.tasks.insert(task)
+      AppDB.tasks.insert(task)
+    }
+    var tasks = from(AppDB.tasks)_
+
+    Ok(views.html.tasks.list(tasks))
+  }
+  
+
 }

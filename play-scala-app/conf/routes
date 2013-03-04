@@ -4,7 +4,8 @@
 
 # Home page
 GET     /                           controllers.Application.index
-GET     /tasks                           controllers.TasksController.index
+GET     /tasks                      controllers.TasksController.index
+GET     /tasks/list                 controllers.TasksController.list
 
 
 # Map static resources from the /public folder to the /assets URL path
