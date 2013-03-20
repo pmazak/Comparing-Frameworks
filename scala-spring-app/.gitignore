@@ -4,3 +4,4 @@ target
 .project
 .cache
 src/*/*/rebel.xml
+db/*.db
