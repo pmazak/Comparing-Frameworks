@@ -1,10 +1,8 @@
 package app.configurations
 
 import java.util.ArrayList
-import java.util.List
 import java.util.Properties
 
-import org.resthub.web.springmvc.router.RouterHandlerMapping
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
@@ -22,15 +20,15 @@ import org.springframework.web.servlet.view.mustache.MustacheViewResolver
 @ComponentScan(basePackages=Array("app.controllers"))    
 class WebMvcConfiguration {
 
-  @Bean
-  def handlerMapping: RouterHandlerMapping = {
-    val handlerMapping = new RouterHandlerMapping
-    val routeFiles:List[String] = new ArrayList[String]
-    routeFiles.add("WEB-INF/classes/routes.conf")
-    handlerMapping.setRouteFiles(routeFiles)
-    handlerMapping.setAutoReloadEnabled(true)
-    handlerMapping
-  }
+//  @Bean
+//  def handlerMapping: RouterHandlerMapping = {
+//    val handlerMapping = new RouterHandlerMapping
+//    val routeFiles:List[String] = new ArrayList[String]
+//    routeFiles.add("WEB-INF/classes/routes.conf")
+//    handlerMapping.setRouteFiles(routeFiles)
+//    handlerMapping.setAutoReloadEnabled(true)
+//    handlerMapping
+//  }
   
   @Bean
   def mustacheTemplateLoader: MustacheTemplateLoader = {
