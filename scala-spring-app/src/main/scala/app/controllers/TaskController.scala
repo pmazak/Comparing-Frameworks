@@ -1,15 +1,12 @@
 package app.controllers
 
-import java.lang.Integer
 import java.lang.Long
 import java.util.Date
-import java.util.LinkedHashMap
 
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
-import org.squeryl.PrimitiveTypeMode.transaction
 
 import app.models.Task
 

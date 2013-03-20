@@ -10,7 +10,7 @@
    </context-param>
    <context-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>app.configurations.ApplicationContextConfiguration</param-value>
+      <param-value>app.configurations.SpringConfiguration</param-value>
    </context-param>
    <listener>
       <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -24,7 +24,7 @@
 			</init-param>
 			<init-param>
 			   <param-name>contextConfigLocation</param-name>
-			   <param-value>app.configurations.ApiServletConfiguration</param-value>
+			   <param-value>app.configurations.WebMvcConfiguration</param-value>
 			</init-param>
       <load-on-startup>1</load-on-startup>
    </servlet>
