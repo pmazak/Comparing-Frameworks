@@ -1,3 +1,8 @@
+//System.properties["http.proxyHost"]="some-proxy"
+//System.properties["http.proxyPort"]="8080"
+//System.properties["http.proxyUser"]="user1"
+//System.properties["http.proxyPassword"]="pass1"
+
 apply plugin: 'eclipse'
 apply plugin: 'scala'
 apply plugin: 'jetty'
@@ -40,4 +45,7 @@ eclipse.classpath.downloadSources=true
 task os {
 	println System.getProperty('os.name')
 	println System.getProperty('os.arch')
+}
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.4'
 }
