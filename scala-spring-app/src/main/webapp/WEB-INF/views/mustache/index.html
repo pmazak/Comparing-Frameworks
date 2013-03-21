@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Scala Spring Example</title>
+</head>
+<body>
+<h1>Welcome to Scala Spring Example!</h1>
+<hr/>
+<ul>
+    <li><a href="/tasks/create">Create Task</a></li>
+    <li><a href="/tasks/edit/1">Edit task with ID=1</a></li>
+    <li><a href="/tasks/show/1">Show task with ID=1</a></li>
+    <li><a href="/tasks">List tasks</a></li>
+</ul>
+<p>
+<ul>
+    <li><a href="#" id="asHtml">Ajax List tasks HTML</a></li>
+    <li><a href="#" id="asJson">Ajax List tasks JSON</a></li>
+</ul>
+<p>
+<textarea id="response" cols="80" rows="10">
+- - A J A X   R E S P O N S E - -
+</textarea>
+<script>
+$(document).ready(function() {
+	$("#asHtml").click(function(e) {
+		e.preventDefault();
+		$.get('/tasks', {}, function(data) {
+			$("#response").html(data);
+		});
+	});
+	$("#asJson").click(function(e) {
+		e.preventDefault();
+		$.getJSON('/tasks', {}, function(data) {
+			$("#response").html(JSON.stringify(data));
+		});
+	});	
+});
+</script>
+</body>
+</html>

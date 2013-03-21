@@ -9,17 +9,19 @@ repositories {
 	maven { url 'http://repo.typesafe.com/typesafe/snapshots/' }
 }
 dependencies {
-	providedCompile 'javax.servlet:servlet-api:2.5'
   // Scala
   compile 'org.scala-lang:scala-library:2.10.0'
   // Spring MVC comes with Spring Core
   compile 'org.springframework:spring-webmvc:3.2.0.RELEASE'
+  // Required by Spring MVC
+  providedCompile 'javax.servlet:servlet-api:2.5'
   // JSON Serializer
   compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.12'
   // Mustache Templating
   compile 'com.github.sps.mustache:mustache-spring-view:1.0'
   // ORM
   compile 'org.squeryl:squeryl_2.10:0.9.5-6'
+  // Required by Squeryl
   compile 'cglib:cglib-nodep:2.2'
   // Apache BasicDataSource
   compile 'commons-dbcp:commons-dbcp:1.4'

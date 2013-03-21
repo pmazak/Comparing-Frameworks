@@ -5,18 +5,16 @@ import java.util.Date
 import scala.beans.BeanProperty
 import scala.collection.JavaConversions.seqAsJavaList
 
-import org.squeryl.KeyedEntity
 import org.squeryl.PrimitiveTypeMode.from
 import org.squeryl.PrimitiveTypeMode.long2ScalarLong
 import org.squeryl.PrimitiveTypeMode.select
 import org.squeryl.PrimitiveTypeMode.transaction
 import org.squeryl.PrimitiveTypeMode.where
-import org.squeryl.Schema
+
+import AppDb.tasks
+
 
 class Task extends AppDbObject {
-	import AppDb._
-
-	var ids: Long = 0
 	@BeanProperty
 	var description: String = ""
 	@BeanProperty
@@ -33,17 +31,8 @@ class Task extends AppDbObject {
 	}
 }
 object Task {
-  import AppDb._
   def all = seqAsJavaList(transaction { from(tasks)(s => select(s)).toList })
   def find(id:Long):Task = transaction {
     from(tasks)(s => where(s.id === id) select(s)).last
   }
-}
-
-class AppDbObject extends KeyedEntity[Long] {
-	var id: Long = 0
-}
-object AppDb extends Schema {
-  val tasks = table[Task]
-  override def drop = super.drop
 }

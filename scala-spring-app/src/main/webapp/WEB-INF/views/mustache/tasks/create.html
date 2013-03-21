@@ -5,13 +5,11 @@
 Created task.
 <table border=1 cellspacing=0 cellpadding=3>
     <tr>
-        {{{task}}}
-
         {{#task}}
-        	{{> /WEB-INF/views/mustache/task/edit.html}}
+        	{{> /WEB-INF/views/mustache/tasks/edit.html}}
 				{{/task}}
         {{#task.dueDate}}
-        	{{> /WEB-INF/views/mustache/task/edit.html}}
+        	{{> /WEB-INF/views/mustache/tasks/edit.html}}
 				{{/task.dueDate}}
     </tr>
 </table> 

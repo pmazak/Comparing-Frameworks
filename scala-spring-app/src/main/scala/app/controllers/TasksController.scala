@@ -6,16 +6,12 @@ import java.util.Date
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
 
 import app.models.Task
 
 
 @Controller
-@RequestMapping(Array("task/*"))
-class TaskController {
-
-	@RequestMapping
+class TasksController {
 	def create(uiModel: Model) = {
 		var task = new Task
 		task.setDescription("Write a bunch of stuff")
@@ -23,24 +19,18 @@ class TaskController {
 		task.insert         
 		uiModel.addAttribute("task", task)
 	}
-
-	@RequestMapping(Array("edit/{id}"))
 	def edit(@PathVariable id: Long, uiModel: Model):String = {
 		val task = Task.find(id)
 		task.setDescription(task.getDescription + " *edited")
 		task.update
 		uiModel.addAttribute("task", task)
-		return "task/edit"
+		return "tasks/edit"
 	}
-
-	@RequestMapping(Array("show/{id}"))
 	def show(@PathVariable id: Long, uiModel: Model):String = {
 		val task = Task.find(id)
 		uiModel.addAttribute("task", task)
-		return "task/show"
+		return "tasks/show"
 	}
-
-	@RequestMapping
 	def list(uiModel: Model) = {
 	    var tasks = Task.all
 	    uiModel.addAttribute("tasks", tasks)

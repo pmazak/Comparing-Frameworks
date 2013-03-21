@@ -1,34 +1,43 @@
 package app.configurations
 
 import java.util.ArrayList
+import java.util.List
 import java.util.Properties
-
+import org.resthub.web.springmvc.router.RouterHandlerMapping
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.accept.ContentNegotiationManagerFactoryBean
 import org.springframework.web.servlet.View
 import org.springframework.web.servlet.ViewResolver
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver
 import org.springframework.web.servlet.view.InternalResourceViewResolver
 import org.springframework.web.servlet.view.JstlView
 import org.springframework.web.servlet.view.json.MappingJacksonJsonView
 import org.springframework.web.servlet.view.mustache.MustacheTemplateLoader
 import org.springframework.web.servlet.view.mustache.MustacheViewResolver
+import app.views.ConventionMustacheViewResolver
 
 @Configuration
 @ComponentScan(basePackages=Array("app.controllers"))    
 class WebMvcConfiguration {
-
-//  @Bean
-//  def handlerMapping: RouterHandlerMapping = {
-//    val handlerMapping = new RouterHandlerMapping
-//    val routeFiles:List[String] = new ArrayList[String]
-//    routeFiles.add("WEB-INF/classes/routes.conf")
-//    handlerMapping.setRouteFiles(routeFiles)
-//    handlerMapping.setAutoReloadEnabled(true)
-//    handlerMapping
-//  }
+  val isProd: Boolean = false
+  
+  @Bean
+  def handlerAdapter: RequestMappingHandlerAdapter = {
+    new RequestMappingHandlerAdapter
+  }
+  
+  @Bean
+  def handlerMapping: RouterHandlerMapping = {
+    val handlerMapping = new RouterHandlerMapping
+    val routeFiles:List[String] = new ArrayList[String]
+    routeFiles.add("WEB-INF/classes/routes.conf")
+    handlerMapping.setRouteFiles(routeFiles)
+    handlerMapping.setAutoReloadEnabled(!isProd)
+    handlerMapping
+  }
   
   @Bean
   def mustacheTemplateLoader: MustacheTemplateLoader = {
@@ -36,10 +45,10 @@ class WebMvcConfiguration {
   }
   
   @Bean
-  def mustacheViewResolver: MustacheViewResolver = {
-    val mustacheViewResolver = new MustacheViewResolver
+  def mustacheViewResolver: ConventionMustacheViewResolver = {
+    val mustacheViewResolver = new ConventionMustacheViewResolver
     mustacheViewResolver.setOrder(1)
-    mustacheViewResolver.setCache(false)
+    mustacheViewResolver.setCache(isProd)
     mustacheViewResolver.setPrefix("/WEB-INF/views/mustache/")
     mustacheViewResolver.setSuffix(".html")
     mustacheViewResolver.setTemplateLoader(mustacheTemplateLoader)
