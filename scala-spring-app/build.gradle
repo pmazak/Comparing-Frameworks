@@ -34,12 +34,11 @@ dependencies {
   // Rails DB Migrations
   compile fileTree(dir: 'lib', includes: ['migrate4j.jar']) 
 }
+
 war.doLast {
   ant.unzip(src: war.archivePath, dest: "$buildDir/exploded")
 }
+
 jettyRun.contextPath = ""
+
 eclipse.classpath.downloadSources=true
-task os {
-	println System.getProperty('os.name')
-	println System.getProperty('os.arch')
-}
