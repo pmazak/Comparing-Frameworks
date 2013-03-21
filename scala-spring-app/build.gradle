@@ -1,10 +1,9 @@
+//set GRADLE_OPTS=-Xmx1024m
 apply plugin: 'eclipse'
 apply plugin: 'scala'
 apply plugin: 'jetty'
 
 project.targetCompatibility=1.6
-jettyRun.contextPath = ""
-eclipse.classpath.downloadSources=true
 
 repositories {
 	mavenCentral()
@@ -41,3 +40,6 @@ dependencies {
 war.doLast {
   ant.unzip(src: war.archivePath, dest: "$buildDir/exploded")
 }
+jettyRun.contextPath = ""
+jettyRunWar.contextPath = ""
+eclipse.classpath.downloadSources=true

@@ -9,10 +9,10 @@
 <h1>Welcome to Scala Spring Example!</h1>
 <hr/>
 <ul>
-    <li><a href="/tasks/create">Create Task</a></li>
-    <li><a href="/tasks/edit/1">Edit task with ID=1</a></li>
-    <li><a href="/tasks/show/1">Show task with ID=1</a></li>
-    <li><a href="/tasks">List tasks</a></li>
+    <li><a href="tasks/create">Create Task</a></li>
+    <li><a href="tasks/edit/1">Edit task with ID=1</a></li>
+    <li><a href="tasks/show/1">Show task with ID=1</a></li>
+    <li><a href="tasks">List tasks</a></li>
 </ul>
 <p>
 <ul>
@@ -27,13 +27,13 @@
 $(document).ready(function() {
 	$("#asHtml").click(function(e) {
 		e.preventDefault();
-		$.get('/tasks', {}, function(data) {
+		$.get('tasks', {}, function(data) {
 			$("#response").html(data);
 		});
 	});
 	$("#asJson").click(function(e) {
 		e.preventDefault();
-		$.getJSON('/tasks', {}, function(data) {
+		$.getJSON('tasks', {}, function(data) {
 			$("#response").html(JSON.stringify(data));
 		});
 	});	
