@@ -3,11 +3,14 @@ apply plugin: 'scala'
 apply plugin: 'jetty'
 
 project.targetCompatibility=1.6
+jettyRun.contextPath = ""
+eclipse.classpath.downloadSources=true
 
 repositories {
 	mavenCentral()
 	maven { url 'http://repo.typesafe.com/typesafe/snapshots/' }
 }
+
 dependencies {
   // Scala
   compile 'org.scala-lang:scala-library:2.10.0'
@@ -38,7 +41,3 @@ dependencies {
 war.doLast {
   ant.unzip(src: war.archivePath, dest: "$buildDir/exploded")
 }
-
-jettyRun.contextPath = ""
-
-eclipse.classpath.downloadSources=true
