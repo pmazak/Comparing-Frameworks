@@ -4,6 +4,6 @@ You'll want the particular Scala IDE eclipse that goes with Scala 2.10.x.
 **For Play:** cd play-scala-app; play run;     
 http://localhost:9000/  &  http://localhost:9000/tasks
 
-**For Scala-Spring:** cd scala-spring-app; gradlew jettyRunWar;      
+**For Scala-Spring:** cd scala-spring-app; gradlew war jettyRunWar;      
 http://localhost:8080/ & http://localhost:8080/tasks
 (supposedly gradle doesn't need to be installed with this wrapper)
